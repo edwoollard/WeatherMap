@@ -27,6 +27,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.edwoollard.weathermap.Utils.Cache;
 import com.edwoollard.weathermap.Utils.DownloadImageTask;
@@ -315,14 +316,10 @@ public class MainActivity extends AppCompatActivity {
      * Constructs Weather object and writes it into the cache
      */
     public void writeCachedData() {
-        // Get the bitmap from the current weather condition ImageView
-        Bitmap bitmap = null;
-        if (((BitmapDrawable) currentConditionImage.getDrawable()).getBitmap() != null) {
-            bitmap = ((BitmapDrawable) currentConditionImage.getDrawable()).getBitmap();
-        }
-
-        // Remove units from temperature and wind speed
         if (!temperature.getText().toString().isEmpty()) {
+            // Get the bitmap from the current weather condition ImageView
+            Bitmap bitmap = ((BitmapDrawable) currentConditionImage.getDrawable()).getBitmap();
+            // Remove units from temperature and wind speed
             String temp = temperature.getText().toString();
             temp = temp.substring(0, temp.length() - 2);
             String windSp = windSpeed.getText().toString();
@@ -336,7 +333,7 @@ public class MainActivity extends AppCompatActivity {
             // Save weather item to cache so it can be retrieved later with the key
             Cache.getInstance().getLru().put("weather", weather);
         } else {
-
+            Toast.makeText(this, getResources().getText(R.string.location_error), Toast.LENGTH_LONG).show();
         }
     }
 
