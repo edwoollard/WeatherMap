@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Weather Map</string>
+    <string name="action_settings">Settings</string>
+    <string name="current_condition_label">Current Condition:</string>
+    <string name="temperature_label">Temperature:</string>
+    <string name="wind_speed_label">Wind Speed:</string>
+    <string name="wind_direction_label">Wind Direction:</string>
+    <string name="no_previous_weather">No previous weather data to display.</string>
+    <string name="degrees_celsius_unit">°C</string>
+    <string name="mph_unit">mph</string>
+    <string name="last_updated">Last updated:\u0020</string>
+    <string name="fetching_forecast">Fetching weather forecast, Please wait&#8230;</string>
+</resources>
